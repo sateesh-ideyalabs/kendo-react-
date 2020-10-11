@@ -6,6 +6,8 @@ import {
     MonthView
 } from "@progress/kendo-react-scheduler";
 
+import { Dialog, Window } from '@progress/kendo-react-dialogs';
+
 import { Grid, GridColumn } from "@progress/kendo-react-grid";
 
 import gridData from "./data.js";
@@ -16,9 +18,26 @@ const imgCell = (props) => {
             <img src={props.dataItem.image} style={{ width: 60, height: 60 }} />
         </td>
     )
-}
+};
+
 const App = () => {
+    const toggleDialog = () => {
+        this.setState({
+            visibleDialog: !this.state.visibleDialog
+        });
+    };
+
+    const toggleWindow= () => {
+        this.setState({
+            visibleWindow: !this.state.visibleWindow
+        });
+    };
+
     const MyScheduler = React.createRef();
+    MyScheduler.state = {
+        visibleDialog: false,
+        visibleWindow: false
+    };
     const [data, setData] = React.useState([]);
     const [dragTitle, setDragTitle] = React.useState("");
     const [dragItem, setDragItem] = React.useState("");
@@ -46,7 +65,8 @@ const App = () => {
         const trProps = {
             draggable: true,
             onDragStart: e => {
-                setDragItem(props.dataItem)
+                setDragItem(props.dataItem);
+                toggleDialog();
             }
         };
         return React.cloneElement(tr, { ...trProps }, tr.props.children);
@@ -65,6 +85,24 @@ const App = () => {
                 <MonthView />
             </Scheduler>
             <hr />
+
+            <div>
+                {(!this.state.visibleDialog && !this.state.visibleWindow) && (
+                    <span>
+                        <button className="k-button" onClick={this.toggleDialog}>Open Dialog</button>
+                        <button className="k-button" onClick={this.toggleWindow}>Open Window</button>
+                    </span>) }
+                {this.state.visibleDialog && <Dialog title={"Please confirm"} onClose={this.toggleDialog}>
+                    <p style={{ margin: "25px", textAlign: "center" }}>Are you sure you want to continue?</p>
+                    <DialogActionsBar>
+                        <button className="k-button" onClick={this.toggleDialog}>No</button>
+                        <button className="k-button" onClick={this.toggleDialog}>Yes</button>
+                    </DialogActionsBar>
+                </Dialog>}
+                {this.state.visibleWindow && <Window title={"Status"} onClose={this.toggleWindow}>
+                    Additional info
+                </Window>}
+            </div>
 
         </>
     );
