@@ -53,18 +53,19 @@ const App = () => {
     };
     return (
         <>
+            <Grid data={gridData} rowRender={GridRowRender}>
+                <GridColumn field='taskID' />
+                <GridColumn field='title' />
+                <GridColumn field='image' cell={imgCell}   />
+                <GridColumn field='start' />
+                <GridColumn field='end' />
+            </Grid>
             <Scheduler data={data} defaultDate={new Date("2013/6/13")} ref={MyScheduler}>
                 <WeekView showWorkHours={false} />
                 <MonthView />
             </Scheduler>
             <hr />
-            <Grid data={gridData} rowRender={GridRowRender}>
-                <GridColumn field='taskID' />
-                <GridColumn field='title' />
-                <GridColumn field='image' cell={imgCell} width={60}  />
-                <GridColumn field='start' />
-                <GridColumn field='end' />
-            </Grid>
+
         </>
     );
 };
