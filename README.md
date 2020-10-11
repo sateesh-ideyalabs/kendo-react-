@@ -1,6 +1,7 @@
 # kendo-react-
 
 Create-react-app and Heroku are great tools for building highly performant apps, but the React and Heroku docs have very little information on how to deploy React production builds to heroku. I will guide you through deploying a simple production-ready React app to Heroku. These steps will work for any React app built with create-react-app .
+
 Step 1: Create a React App
 First, you’ll need to create a React app using the create-react-app generator. Make sure you have installed Node and npm first.
 In the terminal, enter the following to generate a new react app (and replace hello-world with your app name) :
@@ -8,9 +9,11 @@ npx create-react-app hello-world
 cd hello-world 
 Open the hello-world repository in your preferred text editor. If you’re using atom, simply type atom . in the terminal to open your repo. Here is what the repo will look like:
 hello-world
-├── README.md
-├── node_modules
-├── package.json
+
+
+├── README.md 
+├── node_modules 
+├── package.json 
 ├── .gitignore
 ├── public
 │   ├── favicon.ico
@@ -24,9 +27,12 @@ hello-world
     ├── index.js
     ├── logo.svg
     └── registerServiceWorker.js
+    
+    
 Step 2: Add your own app icon to the Public folder
 You can convert any PNG into a favicon.ico file here: https://www.favicon-generator.org/
 Then delete the existing favicon.ico file from the Public folder and add your own favicon.ico file to the Public folder. If you don’t add your own icon, the app will default to the React icon.
+
 Step 3: Create an Express JS server to serve your production build
 In your repository, create a file called server.js:
 touch server.js
@@ -53,11 +59,13 @@ Make sure you add express, express-favicon, and path to your dependencies:
 yarn add express express-favicon path 
 In your package.json file, change the start script to the following:
 start: "node server.js"
+
 Step 4: Create a React production build
 Heroku now runs the build command automatically when you deploy, but it’s a good idea to test the production build locally before deploying (especially your first time).
 You can create a production build locally by running this command in your terminal:
 yarn build
 Then run yarn start to start the production server locally.
+
 Step 5: Prevent source code from being deployed
 In your repository, create a file called .env :
 touch .env
@@ -84,3 +92,14 @@ Note: if you already initialized your git before running heroku create [app-name
 Congrats! Now you’ve completed all the necessary steps to deploy a React build. To view your app, run the following in the terminal:
 heroku open 
 Enjoy! You can also see what the final repo looks like here: https://github.com/jeremygottfried/sample-react-production-app
+
+
+Drag & Drop 
+
+ https://demos.telerik.com/kendo-ui/dragdrop/index
+ #
+ Drag & Drop with Schedular 
+ 
+ # 
+ https://docs.telerik.com/kendo-ui/controls/scheduling/scheduler/how-to/interaction/drag_and_drop_grid_scheduler#drag-and-drop-between-kendo-ui-grid-and-scheduler
+ 
