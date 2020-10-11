@@ -10,6 +10,13 @@ import { Grid, GridColumn } from "@progress/kendo-react-grid";
 
 import gridData from "./data.js";
 
+const imgCell = (props) => {
+    return (
+        <td>
+            <img src={props.dataItem.image} style={{ width: 60, height: 60 }} />
+        </td>
+    )
+}
 const App = () => {
     const MyScheduler = React.createRef();
     const [data, setData] = React.useState([]);
@@ -54,6 +61,9 @@ const App = () => {
             <Grid data={gridData} rowRender={GridRowRender}>
                 <GridColumn field='taskID' />
                 <GridColumn field='title' />
+                <GridColumn field='image' cell={imgCell} width={60}  />
+                <GridColumn field='start' />
+                <GridColumn field='end' />
             </Grid>
         </>
     );
