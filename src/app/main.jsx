@@ -6,7 +6,7 @@ import {
     MonthView
 } from "@progress/kendo-react-scheduler";
 
-import { Dialog, Window } from '@progress/kendo-react-dialogs';
+import { Dialog, DialogActionsBar, Window } from '@progress/kendo-react-dialogs';
 
 import { Grid, GridColumn } from "@progress/kendo-react-grid";
 
