@@ -84,3 +84,4 @@ Note: if you already initialized your git before running heroku create [app-name
 Congrats! Now you’ve completed all the necessary steps to deploy a React build. To view your app, run the following in the terminal:
 heroku open 
 Enjoy! You can also see what the final repo looks like here: https://github.com/jeremygottfried/sample-react-production-app  
+   
