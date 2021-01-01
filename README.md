@@ -83,4 +83,4 @@ These commands install your dependencies, initialize git, and connect your repo 
 Note: if you already initialized your git before running heroku create [app-name] , then you don’t need to run heroku git:remote -a [app-name] .
 Congrats! Now you’ve completed all the necessary steps to deploy a React build. To view your app, run the following in the terminal:
 heroku open 
-Enjoy! You can also see what the final repo looks like here: https://github.com/jeremygottfried/sample-react-production-app
+Enjoy! You can also see what the final repo looks like here: https://github.com/jeremygottfried/sample-react-production-app  
